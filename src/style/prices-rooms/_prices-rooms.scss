@@ -1,4 +1,52 @@
+@import "const/const";
+
 .b-prices-rooms
 {
+    text-align: center;
+    
+    &__title
+    {
+        font: 42px $mainFont;
+        color: #70563d;
+        margin-bottom: 80px;
+        line-height: 1.2;
+    }
 
+    &__item
+    {
+
+    }
+
+    &__subtitle
+    {
+        font: 28px $mainFont;
+        color: #70563d;
+    }
+
+    &__img
+    {
+        &_luxe
+        {
+            background: url("../img/luxe.png") no-repeat;
+            height: 230px;
+            width: 100%;
+        }
+    }
+
+    &__text
+    {
+        font: 16px $moreFont;
+        color: black;
+    }
+
+    &__price
+    {
+        font: 18px $mainFont;
+        color: #4b4b4b;
+
+        &_digit
+        {
+            color:  #70563d;
+        }
+    }
 }

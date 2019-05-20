@@ -16,3 +16,8 @@
 // Подключение своих SCSS файлов
 @import "prices-rooms/prices-rooms";
 @import "body-background/body-background";
+@import "const/const";
+
+//fonts
+@import "../fonts/NotoSerifRegular.ttf";
+@import "../fonts/PTSansRegular.ttf";
