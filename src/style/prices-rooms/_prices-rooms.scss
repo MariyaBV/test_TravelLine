@@ -3,50 +3,152 @@
 .b-prices-rooms
 {
     text-align: center;
+    line-height: 1.2;
+
+    &__block
+    {
+        position: relative;
+        background-color: $white;
+        
+        &:hover .b-prices-rooms__motivator
+        {
+            display: block;       
+        }
+    }
+
+    &__motivator
+    {
+        display: none;
+        position: absolute;
+        background: url("../img/bestPrice.png") no-repeat;
+        top: 10px;
+        left: 10px;
+        width: 64px;
+        height: 64px;
+        z-index: 1;
+        transition: $transition;
+        -webkit-transition: $transition;
+        -ms-transition: $transition;
+        -moz-transition: $transition;
+    }
     
     &__title
     {
         font: 42px $mainFont;
-        color: #70563d;
+        color: $textBrown;
         margin-bottom: 80px;
-        line-height: 1.2;
     }
 
     &__item
     {
+        padding-top: 30px;
+    }
 
+    &__description
+    {
+        border-color: #dbdbdb;
+        border-width: 0px 0px 1px 0px;
+        border-style: solid;
+        margin: 0 30px;
     }
 
     &__subtitle
     {
         font: 28px $mainFont;
-        color: #70563d;
+        color: $textBrown;
+        margin-bottom: 30px;
     }
 
     &__img
     {
+        max-height: 230px;
+        width: 104%;
+        margin: -5px;
+
         &_luxe
         {
             background: url("../img/luxe.png") no-repeat;
-            height: 230px;
-            width: 100%;
+        }
+
+        &_duplex
+        {
+            background: url("../img/duplex.png") no-repeat;
+        }
+
+        &_business-luxe
+        {
+            background: url("../img/businessLuxe.png") no-repeat;
         }
     }
 
     &__text
     {
         font: 16px $moreFont;
-        color: black;
+        color: $black;
+        line-height: 1.5;
+        margin-bottom: 30px;
     }
 
     &__price
     {
         font: 18px $mainFont;
-        color: #4b4b4b;
+        color: $grey;
+        margin: 30px 0;
 
         &_digit
         {
-            color:  #70563d;
+            color:  $textBrown;
         }
     }
+
+    &__col
+    {
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: 15px;
+        margin-right: 15px;
+        background-color: white;
+        border: 5px solid #e7e0d3;
+        transition: $transition;
+        -webkit-transition: $transition;
+        -ms-transition: $transition;
+        -moz-transition: $transition;
+
+        &:hover
+        {
+            border-color: $white;        
+        }
+    }
+
+    &__button
+    {
+        max-width: 230px;
+        max-height: 50px;
+        padding: 17px 54px;
+        margin: auto;
+        background-color: $buttonBrown;
+        font: 16px $moreFont;
+        color: $white;
+        transition: $transition;
+        -webkit-transition: $transition;
+        -ms-transition: $transition;
+        -moz-transition: $transition;
+        margin-bottom: 45px;
+        display: block;
+
+        &:hover
+        {
+            color: $white;
+            text-decoration: none;
+            background-color: $brownHoverButton;
+            cursor: pointer;
+        }
+    }
+}
+
+a:not([href]):not([tabindex]),
+a:not([href]):not([tabindex]):hover, 
+a:not([href]):not([tabindex]):focus
+{
+    color: $white;
 }
