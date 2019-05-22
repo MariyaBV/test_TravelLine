@@ -7,13 +7,7 @@
 
     &__block
     {
-        position: relative;
         background-color: $white;
-        
-        &:hover .b-prices-rooms__motivator
-        {
-            display: block;       
-        }
     }
 
     &__motivator
@@ -21,8 +15,8 @@
         display: none;
         position: absolute;
         background: url("../img/bestPrice.png") no-repeat;
-        top: 10px;
-        left: 10px;
+        top: 5px;
+        left: 20px;
         width: 64px;
         height: 64px;
         z-index: 1;
@@ -34,9 +28,10 @@
     
     &__title
     {
-        font: 42px $mainFont;
+        font: 41px $mainFont;
         color: $textBrown;
-        margin-bottom: 80px;
+        margin-bottom: 70px;
+        letter-spacing: 2px;
     }
 
     &__item
@@ -49,19 +44,20 @@
         border-color: #dbdbdb;
         border-width: 0px 0px 1px 0px;
         border-style: solid;
-        margin: 0 30px;
+        margin: 0 25px;
     }
 
     &__subtitle
     {
-        font: 28px $mainFont;
+        font: 30px $mainFont;
         color: $textBrown;
-        height: 112px;
+        height: 75px;
+        letter-spacing: 1px;
     }
 
     &__img
     {
-        max-height: 230px;
+        max-width: 370px;
         margin: -5px;
 
         &_luxe
@@ -85,23 +81,25 @@
         font: 16px $moreFont;
         color: $black;
         line-height: 1.5;
-        margin-bottom: 30px;
+        margin-bottom: 23px;
     }
 
     &__price
     {
-        font: 18px $mainFont;
+        font: 24px $mainFont;
         color: $grey;
-        margin: 30px 0;
+        margin: 25px 0;
 
         &_digit
         {
             color:  $textBrown;
+            font-size: 26px;
         }
     }
 
     &__col
     {
+        position: relative;
         padding-left: 0;
         padding-right: 0;
         max-width: 370px;
@@ -112,14 +110,20 @@
         -ms-transition: $transition;
         -moz-transition: $transition;
 
-        &:hover
+        &:not(.visited-card):hover
         {
             border-color: $white;        
+        }
+
+        &:not(.visited-card):hover .b-prices-rooms__motivator
+        {
+            display: block;       
         }
     }
 
     &__button
     {
+        letter-spacing: 1px;
         max-width: 230px;
         max-height: 50px;
         padding: 17px 54px;
@@ -179,7 +183,7 @@ a:not([href]):not([tabindex]):focus
     {
         &__img
         {
-            max-height: 185px;
+            max-width: 300px;
         }
 
         &__col 
@@ -206,7 +210,7 @@ a:not([href]):not([tabindex]):focus
     {
         &__img
         {
-            max-height: 185px;
+            max-width: 300px;
         }
 
         &__col 
@@ -233,12 +237,12 @@ a:not([href]):not([tabindex]):focus
     {
         &__img
         {
-            max-height: 176px;
+            max-width: 282px;
         }
 
         &__col 
         {
-            max-width: 285px;
+            max-width: 282px;
         }
     }
 
