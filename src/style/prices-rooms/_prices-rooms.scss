@@ -56,13 +56,12 @@
     {
         font: 28px $mainFont;
         color: $textBrown;
-        margin-bottom: 30px;
+        height: 112px;
     }
 
     &__img
     {
         max-height: 230px;
-        width: 104%;
         margin: -5px;
 
         &_luxe
@@ -105,8 +104,7 @@
     {
         padding-left: 0;
         padding-right: 0;
-        margin-left: 15px;
-        margin-right: 15px;
+        max-width: 370px;
         background-color: white;
         border: 5px solid #e7e0d3;
         transition: $transition;
@@ -151,4 +149,97 @@ a:not([href]):not([tabindex]):hover,
 a:not([href]):not([tabindex]):focus
 {
     color: $white;
+}
+
+@media screen and (min-width: 1200px)
+{
+    .b-prices-rooms 
+    {
+        &__container
+        {
+            max-width: 1162px;
+        }
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px)
+{
+    .b-prices-rooms 
+    {
+        &__container
+        {
+            max-width: 950px;
+        }
+    }
+}
+
+@media screen and (max-width: 1199px) and (min-width: 768px)
+{
+    .b-prices-rooms 
+    {
+        &__img
+        {
+            max-height: 185px;
+        }
+
+        &__col 
+        {
+            max-width: 300px;
+        }
+
+        &__description 
+        {
+            margin: 0 auto;
+        }
+
+        &__text
+        {
+            margin: 0 20px 30px;
+        }
+    }
+
+}
+
+@media screen and (max-width: 410px)
+{
+    .b-prices-rooms 
+    {
+        &__img
+        {
+            max-height: 185px;
+        }
+
+        &__col 
+        {
+            max-width: 300px;
+        }
+
+        &__description 
+        {
+            margin: 0 auto;
+        }
+
+        &__text
+        {
+            margin: 0 20px 30px;
+        }
+    }
+
+}
+
+@media screen and (max-width: 340px)
+{
+    .b-prices-rooms 
+    {
+        &__img
+        {
+            max-height: 176px;
+        }
+
+        &__col 
+        {
+            max-width: 285px;
+        }
+    }
+
 }
