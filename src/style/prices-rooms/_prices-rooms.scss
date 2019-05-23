@@ -17,7 +17,7 @@
         position: absolute;
         background: url("../img/bestPrice.png") no-repeat;
         top: 5px;
-        left: 20px;
+        left: 5px;
         width: 64px;
         height: 64px;
         z-index: 1;
@@ -56,30 +56,8 @@
     &__subtitle
     {
         font: 30px $mainFont;
-        color: $textBrown;
+        color: $grey;
         height: 75px;
-        letter-spacing: 1px;
-    }
-
-    &__img
-    {
-        max-width: 370px;
-        margin: -5px;
-
-        &_luxe
-        {
-            background: url("../img/luxe.png") no-repeat;
-        }
-
-        &_duplex
-        {
-            background: url("../img/duplex.png") no-repeat;
-        }
-
-        &_business-luxe
-        {
-            background: url("../img/businessLuxe.png") no-repeat;
-        }
     }
 
     &__text
@@ -98,7 +76,7 @@
 
         &_digit
         {
-            color:  $textBrown;
+            color:  $grey;
             font-size: 26px;
         }
     }
@@ -106,8 +84,6 @@
     &__col
     {
         position: relative;
-        padding-left: 0;
-        padding-right: 0;
         max-width: 370px;
         background-color: white;
         border: 5px solid #e7e0d3;
@@ -115,15 +91,81 @@
         -webkit-transition: $transition;
         -ms-transition: $transition;
         -moz-transition: $transition;
+        cursor: pointer;
 
-        &:not(.visited-card):hover
+        &:not(.visited):hover
         {
-            border-color: $white;        
+            border-color: $white;
+            cursor: auto;       
         }
 
-        &:not(.visited-card):hover .b-prices-rooms__motivator
+        &:not(.visited) .b-prices-rooms__price_digit
+        {
+            color:  $textBrown;
+        }
+
+        &:not(.visited) .b-prices-rooms__subtitle
+        {
+            color: $textBrown;
+        }
+
+        &:not(.visited):hover .b-prices-rooms__motivator
         {
             display: block;       
+        }
+
+        &:not(.visited) .b-prices-rooms__button:hover
+        {
+            color: $white;
+            text-decoration: none;
+            background-color: $brownHoverButton;
+            cursor: pointer;  
+        }
+
+        &:not(.visited) .b-prices-rooms__button
+        {
+            background-color: $buttonBrown;
+        }
+
+        &:not(.visited) .b-prices-rooms__img
+        {
+            &_luxe
+            {
+                background: url("../img/luxe.png") no-repeat;
+            }
+
+            &_duplex
+            {
+                background: url("../img/duplex.png") no-repeat;
+            }
+
+            &_business-luxe
+            {
+                background: url("../img/businessLuxe.png") no-repeat;
+            }
+        }
+    }
+
+    &__img
+    {
+        max-width: 370px;
+        margin: -5px; // -5px -5px -20px;
+        width: 370px;
+        height: 230px;
+
+        &_luxe
+        {
+            background: url("../img/luxe-grey.png") no-repeat;
+        }
+
+        &_duplex
+        {
+            background: url("../img/duplex-grey.png") no-repeat;
+        }
+
+        &_business-luxe
+        {
+            background: url("../img/businessLuxe-grey.png") no-repeat;
         }
     }
 
@@ -134,7 +176,7 @@
         max-height: 50px;
         padding: 17px 54px;
         margin: auto;
-        background-color: $buttonBrown;
+        background-color: $grey;
         font: 16px $moreFont;
         color: $white;
         transition: $transition;
@@ -142,14 +184,6 @@
         -ms-transition: $transition;
         -moz-transition: $transition;
         display: block;
-
-        &:hover
-        {
-            color: $white;
-            text-decoration: none;
-            background-color: $brownHoverButton;
-            cursor: pointer;
-        }
     }
 }
 
@@ -160,12 +194,10 @@ a:not([href]):not([tabindex]):focus
     color: $white;
 }
 
-@media screen and (min-width: 992px)
+@media screen and (min-height: 915px)
 {
     .b-prices-rooms 
     {
-        //max-width: 1162px;
-
         &__h-100
         {
             height: 100% !important;
@@ -203,6 +235,7 @@ a:not([href]):not([tabindex]):focus
         &__text
         {
             margin: 0 20px 30px;
+            height: 75px;
         }
     }
 
@@ -215,6 +248,11 @@ a:not([href]):not([tabindex]):focus
         &__title
         {
             margin: 50px 0;
+        }
+
+        &__cards
+        {
+            justify-content: center !important;
         }
     }
 }
@@ -241,6 +279,7 @@ a:not([href]):not([tabindex]):focus
         &__text
         {
             margin: 0 20px 30px;
+            height: 75px;
         }
     }
 

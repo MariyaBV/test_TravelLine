@@ -1,8 +1,34 @@
 document.addEventListener('DOMContentLoaded', function() {
     BackgroundReplacement('#body', 'b-body-background__background-img');
-    RoomSelection('roomsAndPrices', 'b-prices-rooms__button', 'visited-card', "Забронировать", "Подробнее");
-    Cancellation('roomsAndPrices', 'b-prices-rooms__button', 'b-prices-rooms__col', 'visited-card', "Подробнее", "Забронировать");
+    ClosestPolyfill();
+    RoomSelection('roomsAndPrices', 'b-prices-rooms__button', "Забронировать", "Подробнее");
+    Cancellation('roomsAndPrices', 'b-prices-rooms__button', 'b-prices-rooms__col', "Подробнее", "Забронировать");
 });
+
+function ClosestPolyfill()
+{
+    if (!Element.prototype.matches) {
+        // определяем свойство
+        Element.prototype.matches = Element.prototype.matchesSelector ||
+        Element.prototype.webkitMatchesSelector ||
+        Element.prototype.mozMatchesSelector ||
+        Element.prototype.msMatchesSelector;
+    
+    }
+
+    if (!Element.prototype.closest) {
+        // реализуем
+        Element.prototype.closest = function(css) {
+            var node = this;
+        
+            while (node) {
+                if (node.matches(css)) return node;
+                else node = node.parentElement;
+            }
+            return null;
+        };
+    }
+}
 
 function BackgroundReplacement(selector, className)
 {
@@ -30,7 +56,7 @@ function ChangeText(element, firstText, textToBeChanged)
     element.innerHTML = element.innerHTML.replace(firstText, textToBeChanged);
 }
 
-function RoomSelection(parentId, classOfButtons, classForVisitedCard, initialButtonName, newButtonName)
+function RoomSelection(parentId, classOfButtons, initialButtonName, newButtonName)
 {
     let allButtons = GetAllElementsByClass(parentId, classOfButtons);
 
@@ -39,14 +65,14 @@ function RoomSelection(parentId, classOfButtons, classForVisitedCard, initialBut
         let parent = allButtons[i].parentNode.parentNode.parentNode.parentNode;
 
         allButtons[i].onclick = function() {
-            if (!parent.classList.contains(classForVisitedCard))
+            if (!parent.classList.contains('visited'))
             {
                 AddClass(this, 'clicked');
             }
             parent.onmouseout = function() {
                 if (allButtons[i].classList.contains('clicked'))
                 {
-                    AddClass(parent, classForVisitedCard);
+                    AddClass(parent, 'visited');
                     RemoveClass(allButtons[i], 'clicked');
                     ChangeText(allButtons[i], initialButtonName, newButtonName);
                 }
@@ -55,7 +81,7 @@ function RoomSelection(parentId, classOfButtons, classForVisitedCard, initialBut
     }
 }
 
-function Cancellation(parentId, classOfButtons, classOfCards, classForVisitedCard, initialButtonName, newButtonName)
+function Cancellation(parentId, classOfButtons, classOfCards, initialButtonName, newButtonName)
 {
     let allCard = GetAllElementsByClass(parentId, classOfCards);
     let allButtons = GetAllElementsByClass(parentId, classOfButtons);
@@ -64,11 +90,13 @@ function Cancellation(parentId, classOfButtons, classOfCards, classForVisitedCar
     {
         allCard[i].onclick = function(event)
         {
-            if(event.target.closest('.' + classOfCards)) // || this.srcElement)
+            let target = event.target || event.srcElement;
+
+            if(target.closest('.' + classOfCards))
             {
-                if (allCard[i].classList.contains(classForVisitedCard))
+                if (allCard[i].classList.contains('visited'))
                 {
-                    RemoveClass(allCard[i], classForVisitedCard);
+                    RemoveClass(allCard[i], 'visited');
                     ChangeText(allButtons[i], initialButtonName, newButtonName);
                 }
             }
