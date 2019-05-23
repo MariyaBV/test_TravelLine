@@ -2,12 +2,13 @@
 
 .b-prices-rooms
 {
-    text-align: center;
     line-height: 1.2;
+    text-align: center;
 
     &__block
     {
         background-color: $white;
+        margin-bottom: 45px;
     }
 
     &__motivator
@@ -30,7 +31,7 @@
     {
         font: 41px $mainFont;
         color: $textBrown;
-        margin-bottom: 70px;
+        margin: 70px 0;
         letter-spacing: 2px;
     }
 
@@ -41,8 +42,13 @@
 
     &__description
     {
+        margin: 0 25px;
+    }
+
+    &__price-block
+    {
         border-color: #dbdbdb;
-        border-width: 0px 0px 1px 0px;
+        border-width: 1px 0px 0px 0px;
         border-style: solid;
         margin: 0 25px;
     }
@@ -135,7 +141,6 @@
         -webkit-transition: $transition;
         -ms-transition: $transition;
         -moz-transition: $transition;
-        margin-bottom: 45px;
         display: block;
 
         &:hover
@@ -155,13 +160,15 @@ a:not([href]):not([tabindex]):focus
     color: $white;
 }
 
-@media screen and (min-width: 1200px)
+@media screen and (min-width: 992px)
 {
     .b-prices-rooms 
     {
-        &__container
+        //max-width: 1162px;
+
+        &__h-100
         {
-            max-width: 1162px;
+            height: 100% !important;
         }
     }
 }
@@ -170,10 +177,7 @@ a:not([href]):not([tabindex]):focus
 {
     .b-prices-rooms 
     {
-        &__container
-        {
-            max-width: 950px;
-        }
+        max-width: 955px;
     }
 }
 
@@ -204,7 +208,18 @@ a:not([href]):not([tabindex]):focus
 
 }
 
-@media screen and (max-width: 410px)
+@media screen and (max-width: 767px)
+{
+    .b-prices-rooms 
+    {
+        &__title
+        {
+            margin: 50px 0;
+        }
+    }
+}
+
+@media screen and (max-width: 412px)
 {
     .b-prices-rooms 
     {

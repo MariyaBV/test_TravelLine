@@ -36,7 +36,7 @@ function RoomSelection(parentId, classOfButtons, classForVisitedCard, initialBut
 
     for (let i = 0; i < allButtons.length; i++)
     {
-        let parent = allButtons[i].parentNode.parentNode.parentNode.parentNode.parentNode;
+        let parent = allButtons[i].parentNode.parentNode.parentNode.parentNode;
 
         allButtons[i].onclick = function() {
             if (!parent.classList.contains(classForVisitedCard))
