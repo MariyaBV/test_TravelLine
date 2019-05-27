@@ -1,4 +1,5 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ImageminPlugin = require("imagemin-webpack");
@@ -10,7 +11,7 @@ module.exports = {
   entry: { main: './src/js/index.js' },
   output: {
     path: path.resolve(__dirname, './build'),
-    filename: 'main.js'
+    filename: "main.js"
   },
   module: {
     rules: [
@@ -26,24 +27,12 @@ module.exports = {
       },
 
       {
-        test: /\.(scss)$/,
-        use: [{
-          loader: 'style-loader', // inject CSS to page
-        }, {
-          loader: 'css-loader', // translates CSS into CommonJS modules
-        }, {
-          loader: 'postcss-loader', // Run post css actions
-          options: {
-            plugins: function () { // post css plugins, can be exported to postcss.config.js
-              return [
-                require('precss'),
-                require('autoprefixer')
-              ];
-            }
-          }
-        }, {
-          loader: 'sass-loader' // compiles SASS to CSS
-        }]
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader',
+        ],
       },
 
       {
@@ -68,8 +57,15 @@ module.exports = {
       }
     ]
   },
-  plugins: [ 
-    new ExtractTextPlugin({filename: 'main.css'}),
+  
+  entry: [
+    path.resolve(__dirname, '../src/js/index.js'),
+  ],
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+      chunkFilename: "[id].css",
+    }),
     new HtmlWebpackPlugin({
         inject: false,
         hash: true,

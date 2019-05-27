@@ -15,11 +15,14 @@
     {
         display: none;
         position: absolute;
-        background: url("../img/bestPrice.png") no-repeat;
+        background-image: url("../img/sprite.png");
+        background-position: -740px 0px;
+        width: 62px;
+        height: 62px;
         top: 5px;
         left: 5px;
-        width: 64px;
-        height: 64px;
+        //width: 64px;
+        //height: 64px;
         z-index: 1;
         transition: $transition;
         -webkit-transition: $transition;
@@ -57,7 +60,7 @@
     {
         font: 30px $mainFont;
         color: $grey;
-        height: 75px;
+        //height: 75px;
     }
 
     &__text
@@ -131,41 +134,42 @@
         {
             &_luxe
             {
-                background: url("../img/luxe.png") no-repeat;
+                background-position: -370px -460px;
             }
 
             &_duplex
             {
-                background: url("../img/duplex.png") no-repeat;
+                background-position: -370px -230px;
             }
 
             &_business-luxe
             {
-                background: url("../img/businessLuxe.png") no-repeat;
+                background-position: -370px 0px;
             }
         }
     }
 
     &__img
     {
+        background: url("../img/sprite.png") no-repeat;
         max-width: 370px;
-        margin: -5px; // -5px -5px -20px;
+        margin: -5px;
         width: 370px;
         height: 230px;
 
         &_luxe
         {
-            background: url("../img/luxe-grey.png") no-repeat;
+            background-position: 0px -460px;
         }
 
         &_duplex
         {
-            background: url("../img/duplex-grey.png") no-repeat;
+            background-position: 0px -230px;
         }
 
         &_business-luxe
         {
-            background: url("../img/businessLuxe-grey.png") no-repeat;
+            background-position: 0px 0px;
         }
     }
 
@@ -235,7 +239,7 @@ a:not([href]):not([tabindex]):focus
         &__text
         {
             margin: 0 20px 30px;
-            height: 75px;
+            //height: 75px;
         }
     }
 
@@ -279,7 +283,7 @@ a:not([href]):not([tabindex]):focus
         &__text
         {
             margin: 0 20px 30px;
-            height: 75px;
+            //height: 75px;
         }
     }
 
@@ -301,3 +305,16 @@ a:not([href]):not([tabindex]):focus
     }
 
 }
+
+// @media only screen and (-webkit-min-device-pixel-ratio: 2),
+// only screen and (-o-min-device-pixel-ratio: 2/1),
+// only screen and (min-device-pixel-ratio: 2) 
+// {
+//     .b-prices-rooms
+//     {
+//         &__img
+//         {
+//             background-image: url(/icon-sprite@2x.png?20190527152658);
+//         }
+//     }
+// }
