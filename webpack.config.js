@@ -1,6 +1,6 @@
 const path = require('path');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ImageminPlugin = require("imagemin-webpack");
 const imageminGifsicle = require("imagemin-gifsicle");
@@ -57,6 +57,25 @@ module.exports = {
       }
     ]
   },
+
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        uglifyOptions: {
+          compress: {
+            unsafe: true,
+            inline: true,
+            passes: 2,
+            keep_fargs: false,
+          },
+          output: {
+            beautify: false,
+          },
+          mangle: true,
+        },
+      }),
+    ],
+  },
   
   entry: [
     path.resolve(__dirname, '../src/js/index.js'),
@@ -73,11 +92,9 @@ module.exports = {
         filename: 'index.html'
       }),
     new ImageminPlugin({
-      bail: false, // Ignore errors on corrupted images
+      bail: false,
       cache: true,
       imageminOptions: {
-        // Lossless optimization with custom option
-        // Feel free to experement with options for better result for you
         plugins: [
           imageminGifsicle({
             interlaced: true

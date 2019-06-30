@@ -4,6 +4,23 @@
 {
     line-height: 1.2;
     text-align: center;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+
+    &__cards
+    {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 3rem;
+    }
+
+    &__all-card
+    {
+        width: 100%;
+    }
 
     &__block
     {
@@ -21,8 +38,6 @@
         height: 62px;
         top: 5px;
         left: 5px;
-        //width: 64px;
-        //height: 64px;
         z-index: 1;
         transition: $transition;
         -webkit-transition: $transition;
@@ -60,7 +75,6 @@
     {
         font: 30px $mainFont;
         color: $grey;
-        //height: 75px;
     }
 
     &__text
@@ -87,7 +101,7 @@
     &__col
     {
         position: relative;
-        max-width: 370px;
+        max-width: 360px;
         background-color: white;
         border: 5px solid #e7e0d3;
         transition: $transition;
@@ -139,7 +153,7 @@
 
             &_duplex
             {
-                background-position: -370px -230px;
+                background-position: -370px -231px;
             }
 
             &_business-luxe
@@ -200,13 +214,49 @@ a:not([href]):not([tabindex]):focus
 
 @media screen and (min-height: 915px)
 {
+    .b-prices-rooms
+    {
+        min-height: 100%;
+    }
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) and (min-height: 915px)
+{
+    .b-prices-rooms
+    {
+        height: 100%;
+    }
+}
+
+@media screen and (min-width: 1200px)
+{
     .b-prices-rooms 
     {
-        &__h-100
-        {
-            height: 100% !important;
-        }
+        max-width: 1170px;
     }
+}
+
+@media screen and (min-width: 992px)
+{
+    .b-prices-rooms 
+    {
+        // &__all-card
+        // {
+        //     align-items: center;
+        // }
+
+        &__col
+        {
+            margin-left: 0;
+            margin-right: 0;
+
+            &_average
+            {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    } 
 }
 
 @media screen and (min-width: 992px) and (max-width: 1199px)
@@ -214,6 +264,25 @@ a:not([href]):not([tabindex]):focus
     .b-prices-rooms 
     {
         max-width: 955px;
+    }
+}
+
+@media screen and (max-width: 992px) and (min-width: 768px)
+{
+    .b-prices-rooms 
+    {
+        max-width: 720px;
+
+        &__col
+        {
+            margin-left: auto;
+            margin-right: auto;
+
+            &_last
+            {
+                margin-top: 1.5rem;
+            }
+        }
     }
 }
 
@@ -228,7 +297,7 @@ a:not([href]):not([tabindex]):focus
 
         &__col 
         {
-            max-width: 300px;
+            max-width: 290px;
         }
 
         &__description 
@@ -239,7 +308,6 @@ a:not([href]):not([tabindex]):focus
         &__text
         {
             margin: 0 20px 30px;
-            //height: 75px;
         }
     }
 
@@ -249,14 +317,27 @@ a:not([href]):not([tabindex]):focus
 {
     .b-prices-rooms 
     {
+        max-width: 540px;
+
         &__title
         {
             margin: 50px 0;
         }
 
-        &__cards
+        &__col
         {
-            justify-content: center !important;
+            margin-left: auto;
+            margin-right: auto;
+
+            &_average
+            {
+                margin-top: 1.5rem;
+            }
+
+            &_last
+            {
+                margin-top: 1.5rem;
+            }
         }
     }
 }
@@ -272,7 +353,7 @@ a:not([href]):not([tabindex]):focus
 
         &__col 
         {
-            max-width: 300px;
+            max-width: 290px;
         }
 
         &__description 
@@ -283,7 +364,6 @@ a:not([href]):not([tabindex]):focus
         &__text
         {
             margin: 0 20px 30px;
-            //height: 75px;
         }
     }
 
@@ -300,21 +380,8 @@ a:not([href]):not([tabindex]):focus
 
         &__col 
         {
-            max-width: 282px;
+            max-width: 272px;
         }
     }
 
 }
-
-// @media only screen and (-webkit-min-device-pixel-ratio: 2),
-// only screen and (-o-min-device-pixel-ratio: 2/1),
-// only screen and (min-device-pixel-ratio: 2) 
-// {
-//     .b-prices-rooms
-//     {
-//         &__img
-//         {
-//             background-image: url(/icon-sprite@2x.png?20190527152658);
-//         }
-//     }
-// }

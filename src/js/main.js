@@ -1,5 +1,4 @@
 window.onload = function() {
-    BackgroundReplacement('#body', 'b-body-background__background-img');
     MaximumHeightAlignment('roomsAndPrices', "b-prices-rooms__subtitle");
     MaximumHeightAlignment('roomsAndPrices', "b-prices-rooms__text");
     ClosestPolyfill();
@@ -36,12 +35,6 @@ function ClosestPolyfill()
             return null;
         };
     }
-}
-
-function BackgroundReplacement(selector, className)
-{
-    var element = document.querySelector(selector);
-    element.classList.add(className);
 }
 
 function GetAllElementsByClass(idParent, className)
